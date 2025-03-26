@@ -1,0 +1,32 @@
+Create Table employees (
+id SERIAL  PRIMARY KEY,
+first_name VARCHAR (50) NOT NULL,
+last_name VARCHAR (50) NOT NULL,
+email VARCHAR (100) UNIQUE NOT NULL,
+salary NUMERIC (10,2) DEFAULT 0,
+hire_date DATE NOT NULL,
+department VARCHAR (20) CHECK (department IN ('IT','HR','Finance')));
+
+INSERT INTO employees (first_name,last_name,email,salary,hire_date,department) VALUES 
+('John','Doe','john.doe@example.com',55000,'2023-06-15','IT'),
+('Jane','Smith','jane.smith@example.com',60000,'2022-03-10','HR'),
+('Alice','Brown','alice.brown@example.com',70000,'2019-09-05','Finance');
+
+
+
+SELECT*FROM employees;
+
+SELECT*FROM employees WHERE department ='IT';
+
+SELECT*FROM employees WHERE salary >60000;
+
+UPDATE employees
+SET salary = 58000
+WHERE first_name = 'John' AND last_name = 'Doe';
+
+DELETE FROM employees
+WHERE email='alice.browne@example.com';
+
+DROP TABLE employees;
+
+DROP DATABASE company_Duman-ag;
